@@ -1,6 +1,6 @@
 **Задание 1**
 
-Обязательно ознакомьтесь с данными статьсями:
+Обязательно ознакомьтесь с данными статьями:
  * A. https://ru.reactjs.org/docs/state-and-lifecycle.html
  * B. https://dev-gang.ru/article/kak-ponjat-metody-zhiznennogo-cikla-komponenta-v-reactjs-m3v6725v7q/
 
