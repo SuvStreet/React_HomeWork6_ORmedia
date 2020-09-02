@@ -25,10 +25,23 @@ export default class TanksDetails extends Component {
   } */
 
   // средние танки
-  componentDidUpdate(prevProps) {
+  /* componentDidUpdate(prevProps) {
     if (prevProps.selectedItem !== this.props.selectedItem) {
       //console.log("detels=update");
       this.tankopediaService.getMedium(this.props.selectedItem).then(data => {
+        this.setState({
+          tanksInfo: data,
+        });
+      });
+      //console.log(this.state);
+    }
+  } */
+
+  // лёгкие танки
+  componentDidUpdate(prevProps) {
+    if (prevProps.selectedItem !== this.props.selectedItem) {
+      //console.log("detels=update");
+      this.tankopediaService.getLight(this.props.selectedItem).then(data => {
         this.setState({
           tanksInfo: data,
         });
@@ -41,19 +54,26 @@ export default class TanksDetails extends Component {
     // тяжёлые танки
     /* const {id, name, damage, breakingThrough, weight, strength, bodyArmor, towerArmor} = this.state.tanksInfo; */
     // средние танки
-    const {id, name, damage, breakingThrough, maximumSpeed, specificPower, towerTurningSpeed} = this.state.tanksInfo;
+    /* const {id, name, damage, breakingThrough, maximumSpeed, specificPower, towerTurningSpeed} = this.state.tanksInfo; */
+    // лёгкие танки
+    const {id, name, overview, maximumSpeed, specificPower, enginePower, weight} = this.state.tanksInfo;
     return (
       <div className="tanks-details card">
         <img
           className="tanks-image col-md-6"
+          // тяжёлые танки
           /* src={`https://raw.githubusercontent.com/JSDenis/gallery-tanks/master/heavy_tanks/${id}.jpg`} */
-          src={`https://raw.githubusercontent.com/JSDenis/gallery-tanks/master/medium_tanks/${id}.jpg`}
+          // средние танки
+          /* src={`https://raw.githubusercontent.com/JSDenis/gallery-tanks/master/medium_tanks/${id}.jpg`} */
+          // лёгкие танки
+          src={`https://raw.githubusercontent.com/JSDenis/gallery-tanks/master/light_tanks/${id}.jpg`}
           alt="character"
         />
 
         <div className="card-body col-md-6">
           <h4>{name}</h4>
           <ul className="list-group list-group-flush">
+            {/* тяжёлые танки
             <li className="list-group-item">
               <span className="term">Damage</span>
               <span>{damage}</span>
@@ -62,7 +82,6 @@ export default class TanksDetails extends Component {
               <span className="term">Breaking Through</span>
               <span>{breakingThrough}</span>
             </li>
-            {/* тяжёлые танки
             <li className="list-group-item">
               <span className="term">Weight</span>
               <span>{weight}</span>
@@ -79,7 +98,16 @@ export default class TanksDetails extends Component {
               <span className="term">Tower Armor</span>
               <span>{towerArmor}</span>
             </li> */}
-            {/* средние танки */}
+
+            {/* средние танки 
+            <li className="list-group-item">
+              <span className="term">Damage</span>
+              <span>{damage}</span>
+            </li>
+            <li className="list-group-item">
+              <span className="term">Breaking Through</span>
+              <span>{breakingThrough}</span>
+            </li>
             <li className="list-group-item">
               <span className="term">Maximum Speed</span>
               <span>{maximumSpeed}</span>
@@ -91,6 +119,28 @@ export default class TanksDetails extends Component {
             <li className="list-group-item">
               <span className="term">Tower TurningSpeed</span>
               <span>{towerTurningSpeed}</span>
+            </li>*/}
+
+            {/* лёгкие танки*/} 
+            <li className="list-group-item">
+              <span className="term">Overview</span>
+              <span>{overview}</span>
+            </li>
+            <li className="list-group-item">
+              <span className="term">Engine Power</span>
+              <span>{enginePower}</span>
+            </li>
+            <li className="list-group-item">
+              <span className="term">Maximum Speed</span>
+              <span>{maximumSpeed}</span>
+            </li>
+            <li className="list-group-item">
+              <span className="term">Specific Power</span>
+              <span>{specificPower}</span>
+            </li>
+            <li className="list-group-item">
+              <span className="term">Weight</span>
+              <span>{weight}</span>
             </li>
           </ul>
         </div>

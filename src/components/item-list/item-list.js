@@ -22,8 +22,18 @@ export default class ItemList extends Component {
   } */
 
   // средние танки
-  componentDidMount() {
+  /* componentDidMount() {
     this.tankopediaService.getAllMedium().then((data) => {
+      this.setState({
+        items: data,
+      });
+      console.log(this.state);
+    });
+  }  */
+
+  // лёгкие танки
+  componentDidMount() {
+    this.tankopediaService.getAllLight().then((data) => {
       this.setState({
         items: data,
       });

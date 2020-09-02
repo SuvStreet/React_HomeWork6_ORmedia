@@ -13,6 +13,7 @@ export default class TankopediaService {
     return await res.json();
   };
 
+  // тяжёлые танки
   getAllHeavy = async () => {
     const res = await this.getResource(`/heavy/`);
     return res  //res.results
@@ -25,6 +26,7 @@ export default class TankopediaService {
     return this._transformHeavy(heavy);
   };
 
+  // средние танки
   getAllMedium = async () => {
     const res = await this.getResource(`/medium/`);
     console.log(res);
@@ -36,6 +38,20 @@ export default class TankopediaService {
   getMedium = async (id) => {
     const medium = await this.getResource(`/medium/${id}/`);
     return this._transformMedium(medium);
+  };
+
+  // лёгкие танки
+  getAllLight = async () => {
+    const res = await this.getResource(`/light/`);
+    console.log(res);
+    return res  //res.results
+      .map(this._transformLight)
+      .slice(0, 15);
+  }
+
+  getLight = async (id) => {
+    const light = await this.getResource(`/light/${id}/`);
+    return this._transformLight(light);
   };
 
   getAllPremium = async () => {
@@ -85,6 +101,18 @@ export default class TankopediaService {
       maximumSpeed: medium.maximum_speed,
       specificPower: medium.specific_power,
       towerTurningSpeed: medium.tower_turning_speed,
+    }
+  }
+
+  _transformLight = (light) => {
+    return {
+      id: light.id,
+      name: light.name,
+      weight: light.weight,
+      overview: light.overview,
+      maximumSpeed: light.maximum_speed,
+      specificPower: light.specific_power,
+      enginePower: light.engine_power,
     }
   }
 }
