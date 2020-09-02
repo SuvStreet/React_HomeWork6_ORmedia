@@ -1,20 +1,17 @@
-MOUNTING
-------
-constructor() => render() => componentDidMount()
+**Задание 1**
 
+Обязательно ознакомьтесь с данными статьсями:
+ * A. https://ru.reactjs.org/docs/state-and-lifecycle.html
+ * B. https://dev-gang.ru/article/kak-ponjat-metody-zhiznennogo-cikla-komponenta-v-reactjs-m3v6725v7q/
 
-UPDATES
-------
-New Props
-              => render() => componentDidUpdate(
-setState()                      prevProps, prevState)
+**Задание 2**
 
+Повторить то, что реализовывали на уроке.
 
-UNMOUNTING
-------
-componentWillUnmount()
+**Задание 3**
 
+Реализовать компонент списка техники(средних танков, легких танков) + item Details средних танков/легких танков.
 
-ERROR
-------
-componentDidCatch()
+**Задание 4**
+
+Обработать состояния ошибки для любого компонента (идея в том чтобы при нажатию на кнопку ошибки ломался не весь проект, а лишь компонент в котором была сгенерирована ошибка).
